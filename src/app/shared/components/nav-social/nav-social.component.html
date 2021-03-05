@@ -1,0 +1,13 @@
+<nav class='navbar nav-social navbar-expand navbar-light bg-light'>
+  <div class="container">
+      <ul class='navbar-nav mr-auto'>
+        <li class="nav-item"  *ngFor="let item of socialmedia" [routerLinkActive]='["active"]' [routerLinkActiveOptions]='{ exact: true }'>
+          <a class="nav-link" [routerLink]='[item.link]'>
+            <fa-icon [icon]="['fab', item.icon]" [classes]="['fa-icon']"></fa-icon>
+          </a>
+        </li>
+    
+       
+      </ul>
+  </div>
+</nav>

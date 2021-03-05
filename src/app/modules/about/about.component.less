@@ -1,0 +1,120 @@
+.about{
+    padding-right: 46px;
+
+    .title{
+        color: #3b3b3b;
+        font-family: Lato;
+        font-size:1.5rem;
+        margin: 45px 0 28px;
+    }
+
+    p{
+        color:#3d3c3c;
+        font-family:  'Open Sans', sans-serif;
+        font-size:0.875rem;
+        text-align: justify;
+    }
+
+    .quote{
+        padding: 0 50px;
+
+        .ng-fa-icon{
+            color: #ededed;
+            font-size: 3rem;
+            position: relative;
+            line-height: 1;
+        }
+        span{
+            position: relative;
+            top: -30px;
+            left: 30px;
+            font-family:'papyrus';
+            font-size: 1.125rem;            
+        }
+    }
+
+    h5{
+        font-family: 'ar_decode';
+        font-size: 2.25rem;
+        text-align: end;
+    }
+}
+.welcome{
+    margin-top:40px;
+    padding: 0 20px;
+    h5{
+        font-family: 'ar_decode';
+        font-size: 1.9rem;
+        text-align: center;
+        margin-bottom: 30px;
+    }
+    .img-blogger{
+        border-radius: 50%;
+        width: 80%;
+        overflow: hidden;
+        margin: 0 auto;
+
+        img{
+            width: 100%;
+        }
+    }
+
+}
+
+@media only screen and (min-width: 992px){
+    .welcome{
+        align-items: center;
+        .img-blogger{
+            
+            width: 230px;
+            height: 230px;
+            flex: none;
+            max-width: 230px;
+            padding: 0;
+        }
+    }
+}
+
+@media only screen and (max-width: 991px){
+
+  .welcome{
+    align-items: center;
+    margin-top: 40px;
+    margin: auto;
+    padding: 40px 20px 0px;
+      .img-blogger{
+          margin:0 10px;
+          flex: none;
+          max-width: 20%;
+          padding: 0;
+      }
+      .welcome-text h5{
+          margin-left: 10px;
+        margin-bottom: 0;
+      }
+  }
+
+  .about{
+      padding: 20px;
+      margin:0 auto;
+  }
+
+}
+
+@media only screen and (max-width: 425px){
+    .welcome{
+        justify-content: center;
+        padding: 0px 20px;
+        .img-blogger{
+            order: 1;
+            margin:0 10px;
+            flex: none;
+            max-width: 30%;
+            padding: 0;
+        }
+        .welcome-text h5{
+            margin:10px 0 0;
+        
+        }
+    }
+}

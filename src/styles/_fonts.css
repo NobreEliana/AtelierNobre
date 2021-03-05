@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,700');  
+
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800');
+
+@import url('https://fonts.googleapis.com/css?family=Lato:400,100,300,100italic,300italic,400italic,500,500italic,700,700italic,900,900italic');
+
+@font-face {
+    font-family: 'ar_decode';
+    src: url('../assets/fonts/ardecode-webfont.eot');
+    src: url('../assets/fonts/ardecode-webfont.eot?#iefix') format('embedded-opentype'), url('../assets/fonts/ardecode-webfont.woff') format('woff'), url('../assets/fonts/ardecode-webfont.ttf') format('truetype'), url('../assets/fonts/ardecode-webfont.svg#ar_decoderegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'vivaldi';
+    src: url('../assets/fonts/vivaldii-webfont.eot');
+    src: url('../assets/fonts/vivaldii-webfont.eot?#iefix') format('embedded-opentype'), url('../assets/fonts/vivaldii-webfont.woff') format('woff'), url('../assets/fonts/vivaldii-webfont.ttf') format('truetype'), url('../assets/fonts/vivaldii-webfont.svg#vivaldiitalic') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+@font-face {
+    font-family: 'papyrus';
+    src: url('../assets/fonts/papyrus-webfont.eot');
+    src: url('../assets/fonts/papyrus-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../assets/fonts/papyrus-webfont.woff') format('woff'),
+         url('../assets/fonts/papyrus-webfont.ttf') format('truetype'),
+         url('../assets/fonts/papyrus-webfont.svg#papyrusregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+

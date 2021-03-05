@@ -1,0 +1,39 @@
+<nav class='navbar navbar-expand-md navbar-light' #stickyMenu [class.sticky] = "sticky">
+  <div class="container-lg">
+    <button class="navbar-toggler icon-menu"  #btnNavbar type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false">
+      <fa-icon [icon]="['fas', 'bars']" [classes]="['fa-icon']"></fa-icon>
+  </button>
+
+    <div class='navbar-collapse collapse' id="navbarCollapse">
+      <ul class='navbar-nav mr-auto '>
+        <li class="nav-item" [routerLinkActive]='["active"]' [routerLinkActiveOptions]='{ exact: true }'>
+          <a class="nav-link" [routerLink]='["/"]' (click)='collapse()'>
+            home
+          </a>
+        </li>
+        <li class="nav-item" [routerLinkActive]='["active"]'>
+          <a class="nav-link" [routerLink]='["/blog"]' (click)='collapse()'>
+            blog
+          </a>
+        </li>
+        <!-- <li class="nav-item" [routerLinkActive]='["active"]'>
+          <a class="nav-link" [routerLink]='["/store"]' (click)='collapse()'>
+            store
+          </a>
+        </li> -->
+        <li class="nav-item" [routerLinkActive]='["active"]'>
+          <a class="nav-link" [routerLink]='["/about"]' (click)='collapse()'>
+            sobre-mim
+          </a>
+        </li>
+        <li class="nav-item" [routerLinkActive]='["active"]'>
+          <a class="nav-link" [routerLink]='["/contact"]' (click)='collapse()'>
+            contato
+          </a>
+        </li>
+      </ul>
+    </div>
+    
+
+  </div>
+</nav>

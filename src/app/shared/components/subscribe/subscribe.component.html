@@ -1,0 +1,15 @@
+<section id="inscrevase">
+  <fieldset class="fieldset" *ngIf="writer">
+    <legend class="fieldset-legend">Sobre-Mim</legend>
+    <div class="img-blogger ">
+      <img src="../../../assets/images/perfil-subs.jpg" class="img-responsive center">
+    </div>
+    <br>
+    <div class="about-content">
+      <p>{{writer.welcome}}</p>
+      <p> Eu sou a <strong>{{writer.name}}</strong>.<br>
+      {{writer.description}}</p>
+    </div>
+    
+  </fieldset>
+</section>

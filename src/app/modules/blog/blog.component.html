@@ -1,0 +1,39 @@
+<div class="container-lg" (swipeleft)="swipe($event.type)" (swiperight)="swipe($event.type)">
+    <div class ="row">
+        <div class="col">
+                <div class="layout-options d-md-flex d-none justify-content-end">
+                    <div [ngClass]="{'active':settings.layout=='grid'}" class="icon">
+                      <a href="javascript:void(0)" (click)="settings.layout='grid'" >
+                        <fa-icon [icon]="['fas', 'th-large']" [classes]="['fa-icon']"></fa-icon>
+                      </a>
+                    </div>
+                    <div [ngClass]="{'active':settings.layout=='list'}" class="icon">
+                      <a href="javascript:void(0)" (click)="settings.layout='list'" >
+                        <fa-icon [icon]="['fas', 'th-list']" [classes]="['fa-icon']"></fa-icon>
+                      </a>
+                    </div>
+                    <div [ngClass]="{'active':settings.layout=='full'}" class="icon">
+                      <a href="javascript:void(0)" (click)="settings.layout='full'" >
+                        <fa-icon [icon]="['fas', 'square-full']" [classes]="['fa-icon']"></fa-icon>
+                      </a>
+                    </div>
+                </div>
+                <app-articles [articles]="articles" [settings]="settings"></app-articles>
+        </div>
+          <div class="  swipe-area col-md-4 col-sm-6 col-9 col-lg-3 p-lg-0 d-lg-block sidebar collapse" id="sidebarCollapse" #sidebarScroll [class.fixed]="fixed" >
+            <app-sidebar id="sidebar" class="p-3" ></app-sidebar>
+            <div class="btn-sidebar icon-close d-lg-none">
+              <button type="button"  class="btn sidebarCollapse" (click)="overlayCollapse()" data-toggle="collapse" data-target="#sidebarCollapse" aria-controls="sidebarCollapse" aria-expanded="false">
+                <fa-icon [icon]="['fas', 'angle-right']" [classes]="['fa-icon']"></fa-icon>
+              </button>
+            </div>
+          </div>
+          <div class="btn-sidebar open d-lg-none">
+            <button type="button"  class="btn sidebarCollapse" #btnSidebar [class.sidebarCollapse] (click)="overlayCollapse()"data-toggle="collapse" data-target="#sidebarCollapse" aria-controls="sidebarCollapse" aria-expanded="false">
+              <div class="seta-01 d-inline-block"><fa-icon [icon]="['fas', 'angle-left']" [classes]="['fa-icon']" ></fa-icon></div>
+              <div class="seta-02 d-inline-block"><fa-icon [icon]="['fas', 'angle-left']" [classes]="['fa-icon']" ></fa-icon></div>
+            </button>
+          </div>
+    </div>
+</div>
+<div class="overlay d-lg-none" #overlay [class.active]="active"></div>

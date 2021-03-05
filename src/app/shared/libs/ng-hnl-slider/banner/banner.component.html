@@ -1,0 +1,13 @@
+<div class="slider-item">
+    <div class="slider-img" *ngIf=show_img>
+      <img class="thumbnails img-fluid mx-auto d-block" [src]="banner.image" >
+    </div>
+    <div class="slider-body" *ngIf=show_body>
+      <span class="date">20 Jul 2019</span>
+      <h5 class="title">{{banner.title}}</h5>
+      <span class="categoria">{{banner.categorie}}</span>
+      <div class="slider-botton">
+        <a href="#" routerLink="/blog/{{banner.id}}" title="{{banner.btn?banner.btn:'Ler o artigo'}}" class="btn btn-primary btn-slider">{{banner.btn?banner.btn:'Ler o artigo'}}</a>
+      </div>
+    </div>
+  </div>

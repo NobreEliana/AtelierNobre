@@ -1,0 +1,36 @@
+<nav>
+    <div class="nav-account">
+      <div class="navbar-nav">
+        <a class="nav-link user-link align-items-center" id="user_nav_dropdown"  data-toggle="dropdown">
+          <span class="app-user-info align-self-center font-weight-bold mr-2">Login</span>
+          <span class="app-user-info align-self-center font-weight-bold mr-2">Welcome {{user.username}}</span>
+          <i class="fa fa-user-circle"></i>
+        </a>
+        <div class="dropdown-menu mt-2" [ngClass]='{ "show": false, "user-logged": false }' aria-labelledby="user_nav_dropdown">
+          <form  #login_form="ngForm" class="dropdown-item form-inline my-2 my-md-0 p-2" >
+            <div class="mb-1">
+              <input class="form-control" type="text" name="username" placeholder="User"  required>
+            </div>
+            <div class="mb-1">
+              <input class="form-control" type="password" name="password" placeholder="Password"  required>
+            </div>
+            <div class="mb-1">
+              <button [disabled]="!login_form.valid" class="btn btn-success btn-block my-2 my-sm-0" type="submit">Login</button>
+            </div>
+            <div class="mb-1">
+              <button [disabled]="!login_form.valid" class="btn btn-info btn-block my-2 my-sm-0" type="button" >Register</button>
+            </div>
+          </form>
+
+          <div class="itens-logged">
+            <a class="dropdown-item" href (click)="false"><i class="fa fa-user mr-2"></i>My Account</a>
+            <a class="dropdown-item" href (click)="false"><i class="fa fa-key mr-2"></i>Reset Password</a>
+            <a class="dropdown-item" href (click)="false"><i class="fa fa-sign-out-alt mr-2"></i>Logout</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button type='button' class='navbar-toggler' data-toggle='collapse' data-target='#navbarCollapse' aria-controls="navbarCollapse" aria-label="Navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+</nav>

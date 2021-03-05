@@ -1,0 +1,35 @@
+<div *ngIf="settings.layout=='full'">
+  <div id='article_{{article.id}}'  class="article-item">
+    <div>
+      <app-article [article]="article" [settings]= "settings"> </app-article>
+        <div class="button-box text-center">
+          <button class="btn btn-light btn-read" routerLink="/blog/{{article.id}}">Continue Lendo</button>
+        </div>
+        <div class="article-separator d-flex justify-content-center">
+        </div>
+    </div>
+  </div>  
+</div>
+
+<div *ngIf="settings.layout=='list'">
+  <div id='article_{{article.id}}'  class="article-item article-list ">
+    <div>
+      <app-article [article]="article" [settings]= "settings"></app-article>
+      <div class="article-separator d-flex justify-content-center"></div> 
+    </div>    
+  </div>
+</div>
+
+<div *ngIf="settings.layout=='grid'"> 
+  <div id='article_{{article.id}}'  class=" article-item article-list article-grid ">
+    <div>
+        <app-article [article]="article" [settings]= "settings"></app-article>
+        <div class="button-box text-center">
+          <button class="btn btn-light btn-read" routerLink="/blog/{{article.id}}">Continue Lendo</button>
+        </div>
+    </div>   
+  </div>
+</div>
+
+
+

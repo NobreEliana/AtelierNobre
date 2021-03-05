@@ -1,0 +1,72 @@
+
+<div *ngIf="settings.layout=='full'">
+  <div id='article_{{article.id}}'  class="article-item">
+    <div class="article-head text-center">    
+      <span class="categoria">{{article.category}}</span>
+      <h2 class="title">{{article.title}}</h2>
+      <span class="date">{{$moment(article.data).format('LL')}}</span>    
+    </div>
+    <div class="article-body">
+      <div class="img-box">
+        <a href="#" routerLink="/blog/{{article.id}}" title="{{article.title}}">
+          <img src="{{article.img}}" alt="{{article.title}}" class="image-responsive" style="width: 100%;">
+        </a>
+      </div>
+      <div class="article-content">
+        <div *ngIf="settings.listagem" [innerHTML]="article.summary |slice:0:400|sanitizeHtml"></div>
+        <div *ngIf="!settings.listagem" [innerHTML]="article.content |sanitizeHtml"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div *ngIf="settings.layout=='list'">
+  <div id='article_{{article.id}}'  class="article-item article-list">
+    <div class="row">
+      <div class="img-box col-4">
+        <a href="#" routerLink="/blog/{{article.id}}" title="{{article.title}}">
+          <img src="{{article.img}}" alt="{{article.title}}" class="image-responsive" >
+        </a>
+      </div>
+      <div class="col-8">
+        <div class="article-head ">    
+          <span class="categoria">{{article.category}}</span>
+          <h2 class="title">{{article.title}}</h2>
+        </div>
+        <div class="article-body">
+          <div class="article-content">
+            <p><span *ngIf="settings.listagem" [innerHTML]="article.summary |slice:0:400|sanitizeHtml"></span><a href="" routerLink="/blog/{{article.id}}" class="readmore"> Continue Lendo...</a></p>
+            <p><span *ngIf="!settings.listagem" [innerHTML]="article.content |sanitizeHtml"></span></p>
+          </div>
+        </div>
+        <span class="date">{{$moment(article.data).format('LL')}}</span>  
+      </div>
+    </div>
+  </div>
+</div>
+ 
+<div *ngIf="settings.layout=='grid'">
+  <div id='article_{{article.id}}'  class="article-item article-grid article-list ">
+    <div class="row">
+      <div class="col-12">
+        <div class="img-box">
+          <a href="javascript:void(0)" routerLink="blog/{{article.id}}" title="{{article.title}}"></a>
+          <img src="{{article.img}}" alt="{{article.title}}" class="image-responsive" >
+        </div>
+        <div class="article-head ">    
+          <span class="categoria">{{article.category}}</span><br>
+          <span class="date">{{$moment(article.data).format('LL')}}</span>  
+          <h2 class="title">{{article.title}}</h2>
+        </div>
+        <div class="article-body">
+          <div class="article-content">
+            <p><span *ngIf="settings.listagem" [innerHTML]="article.summary |slice:0:400|sanitizeHtml"></span><a href=""></a></p>
+            <p><span *ngIf="!settings.listagem" [innerHTML]="article.content |sanitizeHtml"></span></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

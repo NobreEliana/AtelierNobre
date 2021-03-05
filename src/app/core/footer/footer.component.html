@@ -1,0 +1,33 @@
+<footer>
+  <div class="container">
+      <div class="icons">
+        <a *ngFor="let item of socialmedia" href="{{item.link}}"  ><fa-icon [icon]="['fab', item.icon]" class="icon icon-{{item.name}}"></fa-icon><span class=" icon-name d-none d-md-inline ">{{item.name}}</span></a>
+      </div>
+
+      <div class="instagram-gallery">
+        <h3>INSTAGRAM</h3>
+        <img src="../../../assets/images/insta1.png" class="item-gallary insta1">
+        <img src="../../../assets/images/insta2.png" class="item-gallary insta2">
+        <img src="../../../assets/images/insta3.png" class="item-gallary insta3">
+        <img src="../../../assets/images/insta4.png" class="item-gallary insta4">
+        <img src="../../../assets/images/insta5.png" class="item-gallary insta5">
+      </div>
+
+      <hr>
+
+      <div class="row follow-social justify-content-center">
+          <p class="follow">Follow me</p>
+          <p class="socialize">Socialize!</p>
+      </div>
+    
+        
+
+        <div class="icons-2">
+            <a *ngFor="let item of socialmedia" href="{{item.link}}"  ><fa-icon [icon]="['fab', item.icon]" class="icon icon-{{item.name}}"></fa-icon></a>
+        </div> 
+
+        <div class="credits">
+            <p>Template Created by <strong>ThemeXpose</strong> . All Rights Reserved </p>
+        </div>
+  </div>
+</footer>

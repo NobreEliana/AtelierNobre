@@ -1,0 +1,75 @@
+.carousel-inner{
+    .active ~ .show  {
+        display: block;
+    }
+
+    .carousel-item {
+        margin-right: 0;
+
+        &.active:not(.carousel-item-right):not(.carousel-item-left),
+        &.active:not(.carousel-item-right):not(.carousel-item-left) ~ .show {
+            transition: none;
+        }
+    }
+
+    .carousel-item-next {
+        position: relative;
+        transform: translate3d(0, 0, 0);
+    }
+
+    /* left or forward direction */
+    .carousel-item-left + .carousel-item-next.carousel-item-left,
+    .carousel-item-next.carousel-item-left ~ .show {
+        position: relative;
+        transform: translate3d(-100%, 0, 0);
+        visibility: visible;
+        display: block;
+        visibility: visible;
+    }
+
+    /* right or prev direction*/
+    .carousel-item-right + .carousel-item-prev.carousel-item-right,
+    .carousel-item-prev.carousel-item-right ~ .show {
+        position: relative;
+        transform: translate3d(100%, 0, 0);
+        visibility: visible;
+        display: block;
+        visibility: visible;
+    }
+        
+    .carousel-item-next.carousel-item-left ~ .show.last{
+        position: absolute;
+        top: 0;
+        z-index: -1;
+        display: block;
+        visibility: visible;
+    }
+
+    .carousel-item-prev.carousel-item-right ~ .show.last{
+        position: absolute;
+        top: 0;
+        right: 0;
+        z-index: -1;
+        display: block;
+        visibility: visible;
+    }
+
+    .carousel-item-prev.carousel-item-right {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        display: block;
+        visibility: visible;
+    }
+}
+
+a[class^='carousel-control-']{
+    background-color: rgba(255, 255, 2555, 0.7);
+}
+ 
+
+    
+
+   
+    

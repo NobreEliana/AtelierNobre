@@ -1,0 +1,118 @@
+.layout-options{
+    margin-right: 4px;
+    margin-bottom: -3%;
+
+    .icon{
+        padding: 10px 4px 0;
+        &.active{
+            .ng-fa-icon{
+                color:#ff8d8d;
+            }
+            
+        }
+        .ng-fa-icon{
+            color: #e4e4e4;
+        }
+    }
+}
+
+
+.seta-01{
+    animation: go-back 1s infinite alternate ease-out;
+}
+.seta-02{
+    animation: go-back2 1s infinite alternate;
+    
+}
+
+@keyframes go-back{
+    from{
+        transform: translateX(14px);
+    }
+    to{
+        transform: translateX(-5px);
+    }
+}
+@keyframes go-back2{
+    from{
+        transform: translateX(10px);
+    }
+    to{
+        transform: translateX(0px);
+    }
+}
+
+
+@media (max-width:991px){
+    
+    .sidebar{
+        height: auto;
+        position: absolute;
+        top:0;
+        right:-300px;
+        background-color: white;
+        z-index: 9999;
+        transition: all 0.5s ease-in-out;
+    }
+    .sidebar.collapsing {
+        height: auto !important;
+        margin-right: -150px;
+        right: -150px;
+        transition: all 0.5s ease-in-out;  
+    }
+    .sidebar.show {
+        right: 0;
+        box-shadow: 3px 30px 22px rgba(0,0,0,0.7);
+    }
+    
+    .fixed{
+        position: fixed;
+        bottom: 0;
+        top: auto;
+    }
+    .overlay{
+        display: none;
+        position: fixed;
+        width: 100vw;
+        height: 100vh;
+        top:0;
+        left: 0;
+        background: rgba(0, 0, 0, 0.08);
+        z-index: 998;
+        opacity: 0;
+        transition: opacity 1s ease-in-out;
+    }
+    
+    .overlay.active {
+        display:block;
+        opacity: 1;
+    }
+    
+    .btn-sidebar{
+        position:absolute;
+        top:0;
+        z-index: 999;
+        padding: 0;
+        margin: 0;
+
+        .ng-fa-icon{
+            color:#ff9999;
+            font-size: 1.5rem;
+        }
+    }
+
+    .btn-sidebar.open{
+        right: 10px;
+
+       
+        
+    }
+
+
+    .btn-sidebar.icon-close{
+        left: 2px;
+        top:-9px;
+        z-index: 9999;
+   
+    }
+}
