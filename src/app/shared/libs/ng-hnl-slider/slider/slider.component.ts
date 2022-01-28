@@ -14,6 +14,7 @@ export class SliderComponent implements OnInit {
   @Input() responsive_layout: boolean;
   @Input() show_body: boolean;
   @Input() show_img: boolean;
+  @Input() show_arrows: boolean;
   qtd_displayed: number; 
   style = {};
   constructor() { }
@@ -28,6 +29,20 @@ export class SliderComponent implements OnInit {
       _this.style = _this.configStyle(_this.qtd_displayed);
     });
 
+    $('#carousel').init((e) =>{
+      let qtd_item = $('.carousel-item').length;
+      this.show_arrows = qtd_item == 1 ? false : true;
+
+      if(qtd_item == 2){
+        $('.carousel-item').each(item => {              
+          let _item = $('.carousel-item').eq(item).clone();
+          _item.removeClass('show active');
+          _item.addClass('cloned');
+          _item.appendTo('.carousel-inner');
+        });
+      }
+    });
+
     $('#carousel').hover((e)=>{
       e.stopPropagation();
     })
@@ -40,12 +55,6 @@ export class SliderComponent implements OnInit {
       let parent = $('.carousel-inner');
       
       if (e.direction=="left") {
-          // if(_this.qtd_displayed == qtd_item){
-          //   let _item = $($item).clone();
-          //   _item.appendTo('.carousel-inner');
-          //   _item.addClass('cloned last');
-          // }
-
           parent.find('.show').removeClass('show').removeClass('last');
           if (idx > 1) {
             $('.carousel-item').eq(0).appendTo('.carousel-inner');
@@ -83,7 +92,10 @@ export class SliderComponent implements OnInit {
   }
 
   getAction(index){
-    return index == 0 ? 'active' : (index > 0 && index < this.qtd_displayed ? (index == this.qtd_displayed-1? 'show last':'show') : '');
+    if(this.qtd_displayed == 1)
+      return index == 0 ? 'active': '';
+    else
+      return index == 1 ? 'active' : (index > 0 && index <= this.qtd_displayed ? (index == this.qtd_displayed + 1 ? 'show last':'show') : '');
   }
 
   configLayout(qtd_displayed: number){
@@ -102,6 +114,9 @@ export class SliderComponent implements OnInit {
   }
 
   configStyle(qtd_displayed: number){
+    let qtd_item = $('.carousel-item').length;
+    this.show_arrows = qtd_item == 1 ? false : true;
+
     return {'max-width.%': 100/qtd_displayed, 'min-width.%': 100/qtd_displayed };
   }
 }

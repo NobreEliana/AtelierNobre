@@ -1,0 +1,28 @@
+<div class="get-comment-box">
+    <div class="row">
+        <div class="col-1 pl-0">
+            <div class="user">
+                <p class="initials">{{getInitial(item.user)}}</p>
+            </div>
+        </div>
+        <div class="col-10 p-0">
+            <h2 class="user-name">{{item.user}}</h2>
+            <span class="date">{{$moment(item.createDate).format('LL')}}</span>
+            <p class="content">{{item.content}}</p>
+            <div class="button-box row justify-content-end"
+                [ngClass]="parentIndex!=undefined? 'button-box-' + parentIndex +'-'+ index: 'button-box-' + index">
+                <button type="button" class="btn btn-light answer-btn"
+                    (click)="openReplyBox(parentIndex!=undefined? parentIndex +'-'+ index: index + '')">Responder</button>
+            </div>
+            <div class="reply-box"
+                [ngClass]="parentIndex!=undefined? 'reply-box-' + parentIndex +'-'+ index: 'reply-box-' + index">
+                <app-comment-box [addPadding]="false" [commentId]="item.commentId"></app-comment-box>
+            </div>
+        </div>
+        <div class="add-border col-12"></div>
+    </div>
+    <div class="pl-5">
+        <app-comment-item [parentIndex]="parentIndex? parentIndex +'-'+ index: index" [item]="children" [index]="c"
+            *ngFor="let children of item.childrenList ; let c = index"></app-comment-item>
+    </div>
+</div>

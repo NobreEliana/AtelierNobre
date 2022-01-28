@@ -1,0 +1,32 @@
+<div class="create-comment" [ngClass]="addPadding?'add-padding':''">
+    <form [formGroup]="commentForm" class=" comment-form" [ngClass]="previewOn?'d-none':''">
+        <textarea class="form-control comment-area" id="comment" rows="5" formControlName="comment"></textarea>
+    </form>
+    <div class="preview-box"  *ngIf="previewOn">
+        <div class="get-comment-box"> 
+            <fa-icon [icon]="['fas', 'times']" [classes]="['fa-icon']" class="close-icon" (click)="closePreview()"></fa-icon>
+            <div class="row" >
+                <div class="col-2">
+                    <div class="user">
+                        <p class="initials">{{getInitial(userComment.user)}}</p>
+                    </div>
+                </div>
+                <div class="col-10 p-0">
+                    <h2 class="user-name">{{userComment.user}}</h2>
+                    <span class="date">{{userComment.createDate}}</span>
+                    <p class="content">{{userComment.content}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div>
+        <span class="text">Comentar como:</span>
+        <app-user-menu (loginEmitter)="loginEmitter($event)" [smallUser]="smallUser"></app-user-menu>
+        <span class="name-user" [ngClass]="!isLogged?'d-none':''"> {{userName}}</span>
+        <div class="options row justify-content-end">
+            <button type="button" class="btn btn-light publish-btn" (click)="publishComment()"> Publicar
+            </button>
+            <button type="button" class="btn btn-light preview-btn" (click)="preview()"> Preview </button>
+        </div>
+    </div>
+</div>

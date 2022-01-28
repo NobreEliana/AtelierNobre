@@ -1,36 +1,26 @@
 <div class="container-lg">
-  <div class= "row">
-    <div class="col-12 order-2 col-lg-8 order-lg-1 about" >
+  <div class="row">
+    <div class="col-12 order-2 col-lg-8 order-lg-1 about">
       <h2 class="title">SOBRE MIM</h2>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce feugiat elementum dui, at laoreet tortor hendrerit eget.
-         Aenean vitae tempor dui, sed cursus lorem. Nulla vitae sagittis turpis. Integer feugiat, odio ut bibendum convallis, ante
-         nisi scelerisque felis, et lacinia nisl mauris condimentum felis. Mauris iaculis nec ligula id imperdiet. Sed euismod, dui 
-         non bibendum euismod, est dui consequat purus, vitae vestibulum tellus tortor at odio. Donec laoreet enim in mi vehicula,
-      </p>
-      <div class="quote">
-        <div class="icon">
-          <fa-icon [icon]="['fas', 'quote-left']" [classes]="['fa-icon']" ></fa-icon>
+      <div *ngIf="writer">
+        <p>{{writer.aboutText1}}</p>
+        <div class="quote" *ngIf="writer && writer.comments">
+          <div class="icon">
+            <fa-icon [icon]="['fas', 'quote-left']" [classes]="['fa-icon']"></fa-icon>
+          </div>
+          <span class="text">{{writer.comments}}</span>
         </div>
-        <span class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce feugiat elementum dui, at laoreet tortor hendrerit eget</span>
+        <p>{{writer.aboutText2}}</p>
+        <h5>{{writer.companyName}}</h5>
       </div>
-
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce feugiat elementum dui, at laoreet tortor hendrerit eget.
-        Aenean vitae tempor dui, sed cursus lorem. Nulla vitae sagittis turpis. Integer feugiat, odio ut bibendum convallis, ante
-        nisi scelerisque felis, et lacinia nisl mauris condimentum felis. Mauris iaculis nec ligula id imperdiet. Sed euismod, dui 
-        non bibendum euismod, est dui consequat purus, vitae vestibulum tellus tortor at odio. Donec laoreet enim in mi vehicula,
-     </p>
-     <h5>Atelier Nobre</h5>
-
     </div>
-    <div class=" col-12 col-lg-4 order-1 row order-lg-2 d-md-flex d-lg-block welcome">
+    <div  *ngIf="writer" class=" col-12 col-lg-4 order-1 row order-lg-2 d-md-flex d-lg-block welcome">
       <div class="welcome-text  order-2 order-lg-1">
         <h5>Bem Vindo ao Atelier Nobre</h5>
       </div>
       <div class="img-blogger  order-1 order-lg-2">
-        <img src="../../../assets/images/perfil-subs.jpg" class="img-responsive center">
+        <img [src]="writer.image" class="img-responsive center">
       </div>
     </div>
-
-    
   </div>
 </div>

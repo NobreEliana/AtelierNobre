@@ -1,15 +1,27 @@
 export interface IArticle {
-    id: number;
-    categoryId: number,
-    category: string,
-    day: number;
-    month: number;
-    year: number;
-    data: Date,
-    title: string,
-    author: string,
-    content: string,
-    summary:string,
-    img: string
-  }
+  articleId: string;
+  category: string;
+  author: string;
+  title: string;
+  summary: string;
+  content: string;
+  imageHigh: string;
+  videoHigh:string;
+  articleStatus: string;
+  createDate: string;
+  publishDate: string;
+}
   
+export class Article {
+  articleId: string;
+  category: string;
+  author: string;
+  title: string;
+  summary: string;
+  content: string;
+  imageHigh: string;
+  videoHigh:string;
+  articleStatus: string;
+  createDate: string;
+  publishDate: string;
+}

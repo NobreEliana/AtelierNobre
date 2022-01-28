@@ -1,6 +1,6 @@
-import { Route } from '@angular/compiler/src/core';
 import { Component, OnInit, Input } from '@angular/core';
-import { ActivatedRoute, NavigationExtras, Router } from '@angular/router';
+import { Router } from '@angular/router';
+import { Helper } from '../../helpers/helper';
 import { ICategory } from './ICategory';
 
 @Component({
@@ -12,10 +12,9 @@ export class CategoriesComponent implements OnInit {
   @Input() categories:ICategory[];
   constructor(private router:Router ) { }
 
-  ngOnInit() {
-   
-    
+  ngOnInit() {}
   
-  }
-
+  routerLink = (route:string, params: object)=>{
+    Helper.routerLink(this.router, route, params);
+  };
 }

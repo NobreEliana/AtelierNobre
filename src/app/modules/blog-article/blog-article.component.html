@@ -1,10 +1,15 @@
 <div class="container-lg">
-    <div class ="row">
+    <div class ="row ">
         <div class="col">
             <div *ngIf="article">
                 <app-article [article]="article" [settings]="settings"></app-article>
             </div>
+            <app-comments></app-comments>
+            <app-comment-box *ngIf="isLogged" [addPadding]="true"></app-comment-box>
+            
+            <div class="options modal-account d-flex col-9"  *ngIf="!isLogged" >
+                <button type="button" class="btn btn-light comment-btn" (click)="openLoginModal()"> Comentar </button>
+            </div>
         </div>        
     </div>   
-    <!-- <editor apiKey="4iuz13tpgv0j5oblbhx6d4bo73umzurhvd3ofvssixrohzte" [init]="tinymce"></editor> -->
 </div>

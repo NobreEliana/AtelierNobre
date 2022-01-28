@@ -1,0 +1,24 @@
+<div class="login" [ngClass]="{'overlay': overlay , 'col-4':redirectTo, 'col-6':!redirectTo}">
+    <div class="row justify-content-center">
+        <div class="col-12 login-modal">
+            <div class="modal-header">
+                <span class="modal-title">Login</span>
+                <a href="javascript:void(0)" (click)="removeModal()"><fa-icon class="close-icon" [icon]="['fas', 'times']" [classes]="['fa-icon']"></fa-icon></a>
+            </div>
+            <div class="modal-body">
+                <form class="loginForm" [formGroup]="loginForm">
+                    <label class="col-12 form-items">
+                        <input type="text" class="form-control" formControlName="email"  placeholder="Email">
+                    </label>
+                    <label class="col-12 form-items">
+                        <input type="password" class="form-control" formControlName="password"  placeholder="Senha">
+                    </label>
+                </form>
+                <div class="col-12 d-flex">
+                    <button type="button" class="btn login-btn" (click)="onSubmit()" >Entrar</button>
+                </div>
+                <a class="link" (click)="openRegisterModal()"> <p class="register-link">Ainda não tem uma conta?</p></a>
+            </div>
+        </div>
+    </div>
+</div>

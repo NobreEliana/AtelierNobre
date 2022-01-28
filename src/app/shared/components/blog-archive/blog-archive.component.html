@@ -2,11 +2,11 @@
   <fieldset class="fieldset">
     <legend class="fieldset-legend">ARQUIVOS</legend>
     <ul  class="list-unstyled" *ngFor="let year of archives.years">
-      <li><a href= "javascript:void(0)" [routerLink]="['/search',{year:year.year}]"><span class="year" >{{year.year}}</span><span class="count">({{year.months.length}})</span></a>
+      <li><a href= "javascript:void(0)" class="year-box" (click)="routerLink('/search', {publishDate:year.year})"><span class="year" >{{year.year}}</span><span class="count">({{year.months.length}})</span></a>
         <ul class="list-unstyled">
-          <li  *ngFor="let month of year.months"><a href= "javascript:void(0)" [routerLink]="['/search',{year:year.year, month:month.month}]"><span class="month">{{$moment.months(month.month-1)}}</span><span class="count">({{month.title.length}})</span></a>
+          <li  *ngFor="let month of year.months" ><a href= "javascript:void(0)" class="month-box" (click)="routerLink('/search', {publishDate:year.year +'-'+ month.month})"><span class="month">{{$moment.months(month.month-1)}}</span><span class="count">({{month.title.length}})</span></a>
             <ul  class="list-unstyled">
-              <li  *ngFor="let title of month.title"><a href= "javascript:void(0)" [routerLink]="['/search',{title:title}]">{{title}}</a></li>
+              <li  *ngFor="let title of month.title"   ><a href= "javascript:void(0)" class="title-box" (click)="routerLink('/search', {title:title})">{{title}}</a></li>
             </ul>
           </li>
         </ul>

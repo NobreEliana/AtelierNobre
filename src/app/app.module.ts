@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { LayoutModule } from '@angular/cdk/layout';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDialogModule, MatTabsModule, MatProgressBarModule, MatTableModule, MatButtonModule, MatCheckboxModule, MatGridListModule, MatCardModule, MatMenuModule, MatIconModule, MatToolbarModule, MatSidenavModule, MatListModule,MatFormFieldModule,MatInputModule } from '@angular/material';
@@ -38,6 +38,18 @@ import { NgHnlSliderModule } from './shared/libs/ng-hnl-slider/ng-hnl-slider.mod
 import { ArticleService } from './core/services/articles/articles.services';
 import { CategoriasService } from './core/services/categorias/categorias.service';
 import { SidebarComponent } from './shared/components/sidebar/sidebar.component';
+import { CookieService } from 'ngx-cookie-service';
+import { Interceptor } from './shared/helpers/interceptor';
+import { ToastrModule } from 'ngx-toastr';
+import { RegisterComponent } from './shared/components/register/register.component';
+import { LoginComponent } from './shared/components/login/login.component';
+import { VerifyEmailComponent } from './shared/components/verify-email/verify-email.component';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { CommentsComponent } from './shared/components/comments/comments.component';
+import { UserMenuComponent } from './shared/components/user-menu/user-menu.component';
+import { CommentBoxComponent } from './shared/components/comment-box/comment-box.component';
+import { CommentItemComponent } from './shared/components/comment-item/comment-item.component';
+
 
 
 
@@ -63,9 +75,19 @@ import { SidebarComponent } from './shared/components/sidebar/sidebar.component'
     HeaderComponent,
     FooterComponent,
     SidebarComponent,
+    RegisterComponent,
+    LoginComponent,
+    VerifyEmailComponent,
+    CommentsComponent,
+    UserMenuComponent,
+    CommentBoxComponent,
+    CommentItemComponent,
     
   ],
-  entryComponents:[],
+  entryComponents:[
+    RegisterComponent,
+    LoginComponent
+  ],
   imports: [
     BrowserModule,
     RoutingModule,
@@ -77,6 +99,7 @@ import { SidebarComponent } from './shared/components/sidebar/sidebar.component'
     MatDialogModule,
     MatTabsModule,
     MatProgressBarModule,
+    MatProgressSpinnerModule,
     MatTableModule,
     MatInputModule ,
     MatFormFieldModule,
@@ -91,9 +114,14 @@ import { SidebarComponent } from './shared/components/sidebar/sidebar.component'
     MatToolbarModule,
     MatSidenavModule,
     MatListModule,
-    NgHnlSliderModule
+    NgHnlSliderModule,
+    ToastrModule.forRoot(),
+
   ],
-  providers: [],
+  providers: [
+    CookieService,
+    { provide: HTTP_INTERCEPTORS, useClass: Interceptor, multi:true}
+  ],
   bootstrap: [AppComponent]
 })
 

@@ -1,0 +1,41 @@
+<div class="create-account "  [ngClass]="{'overlay': overlay , 'col-4':redirectTo, 'col-6':!redirectTo}" >
+    <div class="row justify-content-center">
+        <div class="col-12 create-account-modal">
+            <div class="modal-header">
+                <span class="modal-title">Criar Conta</span>
+                <a href="javascript:void(0)" (click)="removeModal()"><fa-icon class="close-icon" [icon]="['fas', 'times']" [classes]="['fa-icon']"></fa-icon></a>
+            </div>
+            <div class="modal-body">
+                <form class="resgisterForm" [formGroup]="registerForm">
+                    <label class="col-12 form-items p-0">
+                        <input type="text" class="form-control" formControlName="firstName" placeholder="Seu Nome">
+                    </label>
+                    <label class="col-12 form-items p-0">
+                        <input type="text" class="form-control" formControlName="lastName"  placeholder="Sobrenome">
+                    </label>
+                    <label class="col-12 form-items p-0">
+                        <input type="text" class="form-control" formControlName="email"  placeholder="Seu Email">
+                    </label>
+                    <label class="col-12 form-items p-0">
+                        <input type="password" class="form-control" formControlName="password"  placeholder="Senha">
+                    </label>
+                    <label class="col-12 form-items p-0">
+                        <input type="password" class="form-control" formControlName="confirmPassword"  placeholder="Confirme sua Senha">
+                    </label>
+                    <div class="check-box" >
+                        <input type="checkbox" value="" id="flexCheckIndeterminate" formControlName="acceptTerms" (click)="checkToggle()">
+                        <span>
+                            Ao clicar, você estará aceitando nossos Termos, Política de Dados e Política de Cookies.
+                        </span>
+                    </div>
+                </form>
+                <div class="col-12 d-flex div-button">
+                    <button type="button" class="btn register-btn" (click)="createAccount()" [disabled]="!registerForm.valid">Cadastre-se</button>
+                </div>
+                <a class="link" (click)="openLoginModal()"><p class="login-link">Já possui uma conta?</p></a>
+
+            </div>
+        </div>
+    </div>
+</div>
+

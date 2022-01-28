@@ -1,9 +1,7 @@
 <section id="articles" class="row">
-
-    <app-boxarticle [ngClass]="settings.layout=='grid'? 'col-6':''" *ngFor="let item of articles " [article]="item"  [settings]="settings" class="box-article" ></app-boxarticle> 
+    <app-boxarticle [ngClass]="settings.layout=='grid'? 'col-6':''" *ngFor="let item of articles" [article]="item"  [settings]="settings" class="box-article" ></app-boxarticle> 
     <div id="text-error" *ngIf="articles.length==0">
         <h1 class="title">Ops! Busca sem resultados :(</h1>
         <span class="text">Nós não encontramos nenhum resultado para a sua busca.</span>
-    </div>
-    
+    </div>    
 </section>

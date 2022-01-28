@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { NavigationExtras, Route, Router } from '@angular/router';
 import * as moment from 'moment';
+import { Helper } from '../../helpers/helper';
 import { IArchive } from './IArchive';
 
 @Component({
@@ -15,8 +16,10 @@ export class BlogArchiveComponent implements OnInit {
   constructor(private router:Router) { }
 
   ngOnInit() {
-
+    
   }
 
-
+  routerLink = (route:string, params: object)=>{
+    Helper.routerLink(this.router, route, params);
+  };
 }

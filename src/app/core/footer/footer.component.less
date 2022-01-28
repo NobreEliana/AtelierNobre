@@ -39,6 +39,19 @@ footer{
         background-color: white;
         height: 320px;
 
+        .image-box{
+            display: inline-block;
+            position:relative;
+            width: 15%;
+            
+            .item-gallery {
+                box-shadow: 0px 0px 5px rgba(194, 194, 194, 0.7);
+                width: 100%;
+                position: absolute;
+                transition: all 0.2s linear;
+            }
+        }
+        
         h3{
             font-size: 2.5em;
             letter-spacing: -4px;
@@ -46,44 +59,52 @@ footer{
             text-align: center;
             padding: 20px;
         }
+        
+        
+        
+        .image-box:hover{
+            
+            z-index: 10;
 
-        .item-gallary {
-            padding: 10px 0;
-            position:relative;
-            width: 15%;
+            .item-gallery{
+                width: 105%;
+                box-shadow: 0px 9px 5px rgba(194, 194, 194, 0.7)
+            }
+        }
 
+        .insta0, .insta2, .insta4{
+            bottom: 20px;
+        }
+
+        .insta1, .insta3{
+            bottom: -10px;
+        }
+
+        .insta0{
+            left: 16%;
+            z-index: 0;
         }
 
         .insta1{
-            bottom: 20px;
-            left: 17%;
+            left: 15%;
             z-index: 1;
+
         }
 
         .insta2{
-            bottom: -10px;
-            left: 15%;
+            left: 14%;
             z-index: 2;
 
         }
-
         .insta3{
-            bottom: 20px;
             left: 13%;
             z-index: 3;
 
         }
+
         .insta4{
-            bottom: -10px;
-            left: 11%;
+            left: 12%;
             z-index: 4;
-
-        }
-
-        .insta5{
-            bottom: 20px;
-            left: 9%;
-            z-index: 5;
         }
     }
 

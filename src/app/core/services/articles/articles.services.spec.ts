@@ -3,6 +3,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { of } from 'rxjs';
 import { ArticleService } from './articles.services';
 import { IArticle } from 'src/app/shared/components/article/IArticle';
+import { Result } from 'src/app/shared/models/result';
 
 describe('Service Articles', () => {
   beforeEach(() => {
@@ -20,10 +21,10 @@ describe('Service Articles', () => {
   //listar todos os Articles
   it('Listar todos os Articles', async(inject([ArticleService], (service: ArticleService) => {
       let articles: IArticle[];
-      service.list().subscribe(result => { 
-        articles = result;
+      service.GetList().then(result => { 
+        articles = result.data;
           
-        spyOn(service, 'list').and.returnValue(of(articles));
+        spyOn(service, 'GetList').and.returnValue(new Promise<Result<IArticle[]>>((resolve)=>{ return resolve(result)}));
       
         expect(articles).toBeTruthy();
         expect(articles).toBeDefined();
@@ -34,9 +35,10 @@ describe('Service Articles', () => {
   //Get By Search Macth
   it('Get By Search Match', async(inject([ArticleService], (service: ArticleService) => {
     let articles: IArticle[];
-    service.getBySearch("Jesus").subscribe(result => {
-      articles = result;
-      spyOn(service, 'getBySearch').and.returnValue(of(articles));
+    service.getBySearch("Jesus").then(result => {
+      articles = result.data;
+
+      spyOn(service, 'getBySearch').and.returnValue(new Promise<Result<IArticle[]>>((resolve)=>{ return resolve(result)}));
 
       expect(articles).toBeTruthy();
       expect(articles).toBeDefined();
@@ -47,9 +49,9 @@ describe('Service Articles', () => {
   //Get By Search Macth
   it('Get By Search dont Match', async(inject([ArticleService], (service: ArticleService) => {
     let articles: IArticle[];
-    service.getBySearch("Ypoqiwurq").subscribe(result => {
-      articles = result;
-      spyOn(service, 'getBySearch').and.returnValue(of(articles));
+    service.getBySearch("Ypoqiwurq").then(result => {
+      articles = result.data;
+      spyOn(service, 'getBySearch').and.returnValue(new Promise<Result<IArticle[]>>((resolve)=>{ return resolve(result)}));
 
       expect(articles).toBeTruthy();
       expect(articles).toBeDefined();
@@ -60,9 +62,9 @@ describe('Service Articles', () => {
   //Get By Id
   it('Get By Id', async(inject([ArticleService], (service: ArticleService) => {
     let article: IArticle;
-    service.getById(1).subscribe(result => {
-      article = result;
-      spyOn(service, 'getById').and.returnValue(of(article));
+    service.getById("2e8d062f-1f84-45e0-847e-2f76f61b3b60").then(result => {
+      article = result.data;
+      spyOn(service, 'getById').and.returnValue(new Promise<Result<IArticle>>((resolve)=>{ return resolve(result)}));
 
       expect(article).toBeTruthy();
       expect(article).toBeDefined();

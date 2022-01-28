@@ -48,16 +48,31 @@
         text-align: center;
         margin-bottom: 30px;
     }
-    .img-blogger{
-        border-radius: 50%;
-        width: 80%;
+    .img-blogger {
         overflow: hidden;
+        position: relative;
+        border-radius: 50%;
+        margin: 10px;
+        padding: 0;
         margin: 0 auto;
-
-        img{
-            width: 100%;
+    
+        &:before {
+          content: '';
+          display: block;
+          padding-top: 100%; // ratio 2:1              
         }
-    }
+    
+        img {
+          width: 100%;
+          position: absolute;
+          object-fit: cover;
+          height: -webkit-fill-available;
+          top: 0;
+          left: 0;
+          bottom: 0;
+          right: 0;
+        }
+      }
 
 }
 

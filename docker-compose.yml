@@ -1,0 +1,12 @@
+version: '3'
+
+services:
+  hnl-angular-ateliernobre-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: hnl-angular-ateliernobre-app
+    container_name: hnl-angular-ateliernobre-app
+    restart: unless-stopped
+    ports:
+      - "4200:8080"

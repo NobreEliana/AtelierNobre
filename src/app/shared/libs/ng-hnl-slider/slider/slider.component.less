@@ -2,14 +2,54 @@
     .active ~ .show  {
         display: block;
     }
-
+    
     .carousel-item {
         margin-right: 0;
+        padding: 0;
+        border: 1px solid #ececec;    
+        border-width: 1px 1px 1px 0px;
 
         &.active:not(.carousel-item-right):not(.carousel-item-left),
         &.active:not(.carousel-item-right):not(.carousel-item-left) ~ .show {
             transition: none;
         }
+
+        // &:hover {
+        //    .slider-img {
+        //       height: 115px;
+      
+        //       img {
+        //         height: 100%;
+        //       }
+        //     }
+      
+        //     .slider-body {
+        //       margin: 0;
+      
+        //       .art-title {
+        //         margin: 5px 0;
+        //       }
+        //     }
+      
+        //     .slider-body::before {
+        //       content: '';
+        //       width: 100%;
+        //       height: 1px;
+        //       position: absolute;
+        //       top: -72px;
+        //       left: 0;
+        //       border-style: solid;
+        //       border-width: 72px 252px 0 0;
+        //       border-color: transparent #fff transparent transparent;
+        //     }
+      
+        //     .slider-botton {
+        //       display: block;
+        //       text-align: center;
+        //     }
+      
+        //     font-size: 90%;
+        //   }
     }
 
     .carousel-item-next {

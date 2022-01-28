@@ -20,7 +20,6 @@ export class BlogComponent implements OnInit {
   fixed:boolean= false;
   sideScrollPosition:number;
   resultado:number;
-  qtd_slider = 5;
   swipe_action = {
     left:'swipeleft',
     right:'swiperight'
@@ -42,9 +41,9 @@ export class BlogComponent implements OnInit {
       }
     }
     
-    this.route.data.subscribe(data=>{
-      window.scroll(0,240);
-      this.articles=data.article;
+    this.route.data.subscribe(result=>{
+      //window.scroll(0,240);
+      this.articles=result.article.data;
     });
   }
 
@@ -58,7 +57,7 @@ export class BlogComponent implements OnInit {
         }
 
     }
-    @HostListener('window:scroll', ['$event'])
+    @HostListener('window:scroll')
       handleScroll(){
         this.sideScrollPosition= this.sideScrollElement.nativeElement.offsetHeight;
         const windowScroll = window.pageYOffset;

@@ -1,0 +1,20 @@
+version: '3'
+
+services:
+  ateliernobre:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: ateliernobre
+    container_name: ateliernobre
+    environment:
+      VIRTUAL_HOST: ateliernobre.com.br
+      VIRTUAL_PORT: 4200
+    restart: unless-stopped
+    ports:
+      - "4200:8080"
+
+networks:
+  default:
+    external:
+      name: nginx-proxy

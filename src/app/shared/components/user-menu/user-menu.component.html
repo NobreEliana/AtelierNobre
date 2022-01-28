@@ -1,0 +1,30 @@
+<div [ngClass]="smallUser?'small-user-menu':'user-menu'">
+  <div class="logged-out " (click)="dropDown()" *ngIf="!isLogged">
+    <fa-icon class="user-icon" [icon]="['fas', 'user-alt']" [classes]="['fa-icon']"></fa-icon>
+  </div>
+  <div class="logged-in" (click)="dropDown()" *ngIf="isLogged">
+    <p class="initials ">{{getInitial(userName)}}</p>
+  </div>
+  <div class="sub-menu" [ngClass]="!show_menu? 'd-none':''">
+    <ul class="menu-list">
+      <li class="item" [ngClass]="isLogged?'d-none':''">
+        <a class="link" [routerLink]="['/login']">
+          <fa-icon class="icons" [icon]="['fas', 'sign-in-alt']" [classes]="['fa-icon']"></fa-icon>
+          <h3 class="text  d-inline">Login</h3>
+        </a>
+      </li>
+      <li class="item" [ngClass]="isLogged?'d-none':''">
+        <a class="link" [routerLink]="['/register']">
+          <fa-icon class="icons" [icon]="['fas', 'user-plus']" [classes]="['fa-icon']"></fa-icon>
+          <h3 class="text  d-inline">Criar Conta</h3>
+        </a>
+      </li>
+      <li class="item " [ngClass]="!isLogged?'d-none':''" >
+        <a class="link" (click)="logout()">
+          <fa-icon class="icons " [icon]="['fas', 'sign-out-alt']" [classes]="['fa-icon']"></fa-icon>
+          <h3 class="text  d-inline">Sair</h3>
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>

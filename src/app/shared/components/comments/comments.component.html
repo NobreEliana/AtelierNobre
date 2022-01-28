@@ -1,0 +1,20 @@
+<div class="container comments-area">
+    <div class="row m-0">
+        <h3 class="text">Olá! Muito obrigada por ler meu blog e se dispor a comentar meus posts. Seja muito bem
+            -vindo(a)!</h3>
+        <div class="no-comments col-12 p-0" [ngClass]="!noComments?'d-none':''">
+            <h3 class="text">Não temos comentarios neste post. Gostaria de ser o primeiro(a) a comentar?</h3>
+        </div>
+        <div class="get-comments col-12 p-0" *ngIf="commentList && commentList.length > 0">
+            <a class="collapse-menu " data-toggle="collapse" href="#collapseComment" aria-expanded="true"
+                aria-controls="collapseComment">
+                <span class="text">Comentários</span>
+                <fa-icon [icon]="['fas', 'caret-right']" [classes]="['fa-icon']" class="closed-icon"></fa-icon>
+                <fa-icon [icon]="['fas', 'caret-down']" [classes]="['fa-icon']" class="opened-icon"></fa-icon>
+            </a>
+            <div class="collapse collapsed show p-3" id="collapseComment">
+                <app-comment-item [item]="item" [index]="i" *ngFor="let item of commentList ; let i = index"></app-comment-item>
+            </div>
+        </div>
+    </div>
+</div>

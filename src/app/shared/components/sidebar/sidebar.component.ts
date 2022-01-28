@@ -1,13 +1,11 @@
-import { Route } from '@angular/compiler/src/core';
-import { Component, Input, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Component, Inject, OnInit } from '@angular/core';
 import { ArticleService } from 'src/app/core/services/articles/articles.services';
 import { CategoriasService } from 'src/app/core/services/categorias/categorias.service';
 import { WriterService } from 'src/app/core/services/writer/writer.service';
-import { __importDefault } from 'tslib';
 import { IArticle } from '../article/IArticle';
 import { IArchive } from '../blog-archive/IArchive';
 import { ICategory } from '../categories/ICategory';
+import { __importDefault } from 'tslib';
 
 @Component({
   selector: 'app-sidebar',
@@ -20,25 +18,24 @@ export class SidebarComponent implements OnInit {
   categories:ICategory[];
   archives:IArchive;
 
-
-  constructor(private route: ActivatedRoute, private _service_article:ArticleService, private _service_writer:WriterService, private _service_categoria: CategoriasService ) { }
+  constructor(@Inject("COMPANY_ID") private COMPANY_ID: string, private _service_article:ArticleService, private _service_writer:WriterService, private _service_categoria: CategoriasService ) { }
 
   ngOnInit() {
     
-    this._service_writer.get().then(data=>{
-      this.writer=data;
+    this._service_writer.getById(this.COMPANY_ID).then(result=>{
+      this.writer=result.data;
     });
     
-    this._service_categoria.list().then(data=>{
-      this.categories=data;
+    this._service_categoria.GetList().then(result=>{
+      this.categories=result;
     });
-
-    this._service_article.listFull().then(data=>{
-      this.articles=data;
+    
+    this._service_article.GetList().then((result)=>{
+      this.articles=result.data;
     });
-
-    this._service_article.getArchive().then(data=>{
-      this.archives=data;
+    
+    this._service_article.getArchive().then((result)=>{
+      this.archives=result.data;
     });
   }
 }

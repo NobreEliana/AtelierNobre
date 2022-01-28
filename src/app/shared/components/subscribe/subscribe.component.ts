@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Writer } from './writer';
 
 @Component({
   selector: 'app-subscribe',
@@ -6,7 +7,7 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./subscribe.component.less']
 })
 export class SubscribeComponent implements OnInit {
-  @Input() writer:any;
+  @Input() writer:Writer;
   constructor() { }
 
   ngOnInit() {

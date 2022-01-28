@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, Input, OnInit } from '@angular/core';
+import { WriterService } from 'src/app/core/services/writer/writer.service';
+import { Writer } from 'src/app/shared/components/subscribe/writer';
 
 @Component({
   selector: 'app-about',
@@ -7,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AboutComponent implements OnInit {
 
-  constructor() { }
+  @Input() writer: Writer;
+
+  constructor(@Inject("COMPANY_ID") private COMPANY_ID: string, private _service_writer: WriterService) { }
 
   ngOnInit() {
+    this._service_writer.getById(this.COMPANY_ID).then((result) => {
+      this.writer = result.data;
+    });
   }
 
 }

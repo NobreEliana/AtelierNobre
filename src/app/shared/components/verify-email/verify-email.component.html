@@ -1,0 +1,12 @@
+<div class="verify col-8  " [ngClass]="changeMessage?'d-none':''">
+    <h2 class="title"><mat-progress-spinner class="spinner" mode="indeterminate" diameter=30 color="warn"></mat-progress-spinner>Verificando Email</h2>
+    <br>
+    <p>Estamos verificando o seu email. Aguarde, isso pode levar alguns instantes!</p>
+</div>
+
+<div class="verified col-8 " [ngClass]="!changeMessage?'d-none':''">
+   
+    <h2 class="title"> <fa-icon class="check-icon" [icon]="['fas', 'check-circle']" [classes]="['fa-icon']"></fa-icon> Verificado!</h2>
+    <br>
+    <p>Email verificado com sucesso! Redirecionando para a página inicial em {{redirectTimeout}}</p>
+</div>
